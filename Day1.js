@@ -144,6 +144,24 @@ if(angle ===180){
 
 //Exercise 13
 
+function indexOfMax(arr) {
+    if (arr.length === 0) {
+        return -1;
+    }
+
+    var max = arr[0];
+    var maxIndex = 0;
+
+    for (var i = 1; i < arr.length; i++) {
+        if (arr[i] > max) {
+            maxIndex = i;
+            max = arr[i];
+        }
+    }
+
+    return maxIndex;
+}
+console.log("The index of the greatest value: ", indexOfMax([1,2,37,4,5,6,3]))
 
 //Exercise 14
 
@@ -207,3 +225,42 @@ function lowerCase(str) {
   }
 
   //Exercise 19
+
+  function factorize(num)
+ {
+    let a = 2;
+	let factors =1;
+	if(num==a){
+      return a;
+    }
+    while (num > a){
+      if(num % a == 0)
+	  {
+		 factors +=','+a;
+	  }
+	a++;
+   }
+   factors +=','+num;
+   return factors;
+ }
+ console.log(factorize(18))
+
+
+ //Exercise 20
+
+ function acronym(s){
+    let words
+    let acronym
+    let nextWord
+    words = s.split(' ');
+    acronym= "";
+    index = 0
+    while (index<words.length) {
+            nextWord = words[index];
+            acronym = acronym + nextWord.charAt(0);
+            index = index + 1 ;
+    }
+    return acronym
+}
+
+console.log(acronym("Central Intelligence Agency"))

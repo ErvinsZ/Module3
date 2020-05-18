@@ -56,6 +56,15 @@ if((num5 >= 40 && num5 <= 60 && num6 >= 40 && num6 <= 60) ||(num5 >= 70 && num5 
 
 //Exercise 6
 
+function stringCopy (str, n) {
+  if (n < 0){
+    return false}
+  else {
+  return str.repeat(n)
+  }
+}
+console.log(stringCopy("Hello", 1));
+console.log(stringCopy("Hello", -1));
 
 //Exercise 7 
 
@@ -71,3 +80,37 @@ function city(string) {
   console.log(city("Los Angeles"));
 
 //Exercise 8
+
+function sum2(number)
+{
+  return number[0] + number[1] + number[2];
+}
+console.log(sum2([7, 1, 2]));  
+
+//Exercise 9
+
+function check1and3(number1){
+    if (number1.indexOf(1) != -1 || number1.indexOf(3) != -1){
+        return "Array contains 1 or 3"
+    } else {
+        return "Array does not contain 1,3"
+    }
+}
+
+console.log(check1and3([1,2]));
+console.log(check1and3([4,2]));
+
+//Exercise 10
+
+function check1and3_opposite(number2){
+    if (number2.indexOf(1) === -1 && number2.indexOf(3) == -1){
+        return "Array DOES NOT contain 1 or 3"
+    } else {
+        return "Array contains 1,3"
+    }
+}
+
+console.log(check1and3([1,2]));
+console.log(check1and3([4,2]));
+
+//Exercise 11

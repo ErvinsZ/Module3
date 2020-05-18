@@ -226,7 +226,7 @@ function lowerCase(str) {
 
   //Exercise 19
 
-    const convert = (raindrop) => {
+  function convert(raindrop){
     let sound = raindrop % 3 == 0 ? "Pling" : "";
     
     if (raindrop % 5 == 0) sound += "Plang";
@@ -235,7 +235,7 @@ function lowerCase(str) {
     return sound || raindrop.toString();
   };
 
-  console.log(convert(34));
+  console.log(convert(30));
 
 
  //Exercise 20

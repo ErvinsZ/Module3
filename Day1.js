@@ -54,3 +54,20 @@ if((num5 >= 40 && num5 <= 60 && num6 >= 40 && num6 <= 60) ||(num5 >= 70 && num5 
     console.log("False")
 }
 
+//Exercise 6
+
+
+//Exercise 7 
+
+function city(string) {
+    if (string.length >= 3 && ((string.substring(0, 3) == 'Los') || (string.substring(0, 3) == 'New'))) {
+            return string;
+      }
+    return '';
+  }
+  
+  console.log(city("New York"));
+  console.log(city("Dallas"));
+  console.log(city("Los Angeles"));
+
+//Exercise 8

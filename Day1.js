@@ -226,7 +226,16 @@ function lowerCase(str) {
 
   //Exercise 19
 
+    const convert = (raindrop) => {
+    let sound = raindrop % 3 == 0 ? "Pling" : "";
+    
+    if (raindrop % 5 == 0) sound += "Plang";
+    if (raindrop % 7 == 0) sound += "Plong";
   
+    return sound || raindrop.toString();
+  };
+
+  console.log(convert(34));
 
 
  //Exercise 20

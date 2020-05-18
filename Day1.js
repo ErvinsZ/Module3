@@ -226,24 +226,7 @@ function lowerCase(str) {
 
   //Exercise 19
 
-  function factorize(num)
- {
-    let a = 2;
-	let factors =1;
-	if(num==a){
-      return a;
-    }
-    while (num > a){
-      if(num % a == 0)
-	  {
-		 factors +=','+a;
-	  }
-	a++;
-   }
-   factors +=','+num;
-   return factors;
- }
- console.log(factorize(18))
+  
 
 
  //Exercise 20

@@ -235,7 +235,7 @@ function lowerCase(str) {
     return sound || raindrop.toString();
   };
 
-  console.log(convert(30));
+  console.log(convert(28));
 
 
  //Exercise 20

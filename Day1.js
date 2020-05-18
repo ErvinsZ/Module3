@@ -143,3 +143,67 @@ if(angle ===180){
 } 
 
 //Exercise 13
+
+
+//Exercise 14
+
+function maxEven(array) {
+
+    array.sort((x, y) => y - x);
+  
+    for (let i = 0; i < array.length; i++) {
+      if (array[i] % 2 == 0)
+        return array[i];
+      }
+    }
+
+  console.log(maxEven([10, 30, 50, 53]));
+  
+
+  //Exercise 15
+
+  let x1 = 50
+  let y1 = 40
+
+  if(x1+y1 === 50 || x1 === 50 || y1 === 50){
+      console.log("True")
+  } else{
+      console.log("False")
+  }
+
+  //Exercise 16
+
+  let x2 = -2
+  let y2 = 1
+
+if((x2 < 0 && y2 > 0) || x2 > 0 && y2 < 0){
+    console.log("True")
+} else {
+    console.log("False")
+}
+
+//Exercise 17
+
+function lowerCase(str) {
+    if (str.length < 3) {
+      return str.toUpperCase();
+    }
+    front = (str.substring(0, 3)).toLowerCase();
+    back = str.substring(3, str.length);  
+    return front + back;
+  }
+  console.log(lowerCase("YOUTUBE"));
+  console.log(lowerCase("yo"));
+
+  //Exercise 18 
+
+  let x3 = 30
+  let y3 = 4
+  let sum3 = x3+y3
+  if(sum3>=50 && sum3 <=80){
+      console.log("65")
+  }else {
+      console.log("80")
+  }
+
+  //Exercise 19

@@ -114,3 +114,32 @@ console.log(check1and3([1,2]));
 console.log(check1and3([4,2]));
 
 //Exercise 11
+
+function longestString(string1) {
+    let max = string1[0].length;
+    string1.map(x => max = Math.max(max, x.length));
+    result = string1.filter(x => x.length == max);
+    return result;
+  }
+  
+  console.log(longestString(['ab', 'a', 'abc','abcdefg','abcd']))
+
+
+//Exercise 12
+
+let angle = 180
+
+if(angle >=0 && angle < 90){
+    console.log("Acute angle")
+} 
+if(angle === 90){
+    console.log("Right angle")
+}
+if(angle >90 && angle < 180){
+    console.log("Obtuse angle")
+} 
+if(angle ===180){
+    console.log("Straight angle")
+} 
+
+//Exercise 13

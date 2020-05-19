@@ -1,0 +1,716 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+
+    <title>Spotify</title>
+
+    <style>
+
+    body{
+        background-color: rgb(19, 18, 18);
+        
+        
+    }
+
+    .main{
+        margin-left: 200px;
+        
+        
+    }
+
+    .main h1{
+        color:white;
+        margin-left:65px;
+        margin-bottom: 20px;
+    }
+    .jumbotron{
+    
+    text-align: center;
+    background-image: url(Queen.png);
+    background-repeat: no-repeat;
+    background-size:cover;
+    color:rgb(253, 250, 250);
+    box-shadow:  inset 0px -20px 30px 0px rgb(19, 18, 18);
+    
+    }
+
+    .jumbotron .btn{
+        width:130px;
+        margin-right: 5px;
+        border-radius: 30px;
+        font-size: 13px;
+    }
+    .jumbotron a{
+        text-decoration: none;
+    }
+        
+   .wrapper {
+    width: 100%;
+    align-items: stretch;
+    
+    
+    }
+    #sidebar {
+    min-width: 200px;
+    max-width: 200px;
+    min-height: 92vh;
+    background: black;
+    color: #fff;
+    position:fixed;
+    
+}
+
+.footerSB{
+    min-height: 40px;
+    position: absolute;
+    bottom: 0;
+}  
+
+.footerSB > a{
+  color:grey;
+}
+
+.footerSB > a:hover{
+  text-decoration: none;
+  color:#fff;
+}
+
+
+    #sidebar .sidebar-header {
+    padding: 20px;
+    
+}
+
+    #sidebar ul.components {
+    padding: 20px 0;
+    ;
+}
+
+    #sidebar ul p {
+    color: #fff;
+    padding: 10px;
+}
+
+    #sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+}
+    #sidebar ul li a:hover {
+    color: rgba(241, 234, 234, 0.89);
+    text-decoration: none;
+
+}
+
+    #sidebar ul li> a, a[aria-expanded="true"] {
+    color:grey;
+    
+}
+    ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    }
+
+    .card-deck {
+        height:180px;
+        width:200px;
+        
+    }
+
+    .card {
+       
+        text-align: center;
+        background-color: rgb(19, 18, 18);
+        color: white;
+        
+    }
+
+    .card-img-top {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .card-text{
+      color:grey;
+    }
+
+
+
+    footer{
+      background-color: rgb(37, 37, 37);
+      position:sticky;
+      height:8vh;
+      left: 0;
+      bottom: 0;
+      width:100%;
+    }
+
+    .footer-small{
+      background-color: rgb(37, 37, 37);
+      text-align: center;
+      position:sticky;
+      left: 0;
+      bottom: 0;
+      max-width:100%;
+
+    }
+
+    footer .btn{
+      color:grey;
+    }
+    .container1{
+      justify-content: space-between;
+      font-size: 15px;
+      color:rgb(136, 136, 134);
+    }
+
+    .container1 img{
+      margin: 0;
+      position: relative;
+      top: 60%;
+      -ms-transform: translateY(-50%);
+      transform: translateY(-50%);
+}
+    .slider:hover {
+      opacity: 1;
+    }
+
+    .slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: white;
+      cursor: pointer;
+    }
+
+    .slider {
+      -webkit-appearance: none;
+      width: 100px;
+      height: 5px;
+      border-radius: 5px;
+      background: grey;
+      outline: none;
+      opacity: 0.7;
+      -webkit-transition: .2s;
+      transition: opacity .2s;
+    }
+
+    .jumbo-bottom {
+      padding-top:50px;
+    }
+
+    .btn-md{
+      background-color: transparent;
+      border:none;
+      overflow: hidden;
+      color:rgb(212, 208, 205);
+      font-weight:bold;
+      font-size: 14px;
+      outline:none !important;
+    }
+    
+    .btn-sm{
+      background-color: transparent;
+      border:none;
+      color:grey;
+      outline:none !important;
+
+    }
+
+    .btn-md:hover{
+      color: white;
+      border-bottom: 3px solid green;
+    }
+
+    .dropdown-item{
+      color: grey;
+      text-align: left;
+    }
+
+
+    .dropdown-item:hover{
+      color:white;
+      background-color: transparent;
+    }
+    .p{
+      margin-top: 100px;
+    }
+
+    @media (max-width: 500px) {
+  #sidebar {
+    display: none;
+  }
+}
+
+.card:hover .infos-container {
+  opacity: 1;
+  transform: translateY(5px);
+  font-size: larger;
+  font-weight:bolder;
+}
+.card:hover img{
+  transform: scale(1.1);
+  
+}
+    .play-icon {
+  position: absolute;
+  color: white;
+  left: -200px;
+  bottom: 20px;
+  background-color: #4CAF50;
+  padding: 0.9rem;
+  width: 50px;
+  border-radius: 40px;
+  height: 50px;
+  transform: translateX(0);
+  opacity: 0;
+  transition: opacity 0.3s ease 0.3s, transform 0.4s ease 0.1s;
+  animation: ourGradient 4s ease infinite;
+  z-index: 3;
+}
+.card:hover .play-icon {
+  opacity: 1;
+  transform: translateX(calc(200px + 15px + 0.9rem));
+}
+.play-icon i {
+  position: relative;
+  left: 1px;
+  top: -1px;
+}
+
+@media (max-width: 500px) {
+  .main {
+    margin-left: 0;
+  }
+}
+
+@media (min-width: 501px) {
+  .jumbotron .btn-sm {
+    display: none;
+  }
+
+   
+  }
+
+@media (max-width: 400px) {
+  .main {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  footer {
+    display:none;
+  }
+}
+
+@media (min-width: 400px) {
+  .footer-small {
+    display:none;
+  }
+}
+
+@media (max-width: 768px) {
+  #sidebar {
+    height:94vh !important;
+  }
+}
+
+
+
+
+</style>
+  </head>
+
+  <body>
+   
+
+    <div class="wrapper">
+        
+        <nav id="sidebar"> 
+          
+
+            <div class="sidebar-header">
+                <img src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_RGB_White.png" style="object-fit: cover; width:150px; ">
+            </div>
+    
+            <ul class="list-unstyled components">
+        
+               
+                <li>
+                     <a href="#"><i class="fas fa-home"></i> Home</a>
+                </li>
+               
+                <li>
+                    <a href="./spotify/spotify.html"><i class="fas fa-search"></i> Search</a>
+                </li>
+                <li>
+                    <a href="Album.html"><i class="fas fa-stream"></i> Your Library</a>
+                </li>
+            </ul>
+            <id class="footerSB"> <a href="#" class="p-3"><i class="fa fa-download pr-2" aria-hidden="true"></i>Install App</a>
+              <br> <h6 class=" border-top ml-2"> <img src="https://tshirt-factory.com/images/detailed/34/Cool-santa-T-shirt-design-34491.jpg"  alt="" class="mt-1 mr-1" style="object-fit: cover; width: 30px;border-radius:40%">Santa Claus</h6>
+          </id>
+        </nav>
+    
+    </div>
+
+    <div class = "main">
+      
+      <div class="jumbotron">
+            <div class=colllapse-btn>
+              <div class="row no-gutters">
+                <div class="dropdown dropright">
+
+                  <button type="button" class="btn-sm" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-bars fa-3x"></i></button> 
+
+                  <div class="dropdown-menu" style="background-color: rgba(0, 0, 0, 0.295);" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item noHover" href="#"><i class="fas fa-home fa-lg"></i> HOME</a>
+                    <a class="dropdown-item noHover" href="#"><i class="fas fa-search fa-lg"></i> SEARCH</a>
+                    <a class="dropdown-item noHover" href="Album.html"><i class="fas fa-stream fa-lg"></i> YOUR LIBRARY</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+       <div class="row no-gutters">
+              <div class="col">
+            <p class="p" style="color:rgba(221, 213, 213, 0.644); font-weight: 510;">10'746'023 montly listeners</p>
+            <h1 class="display-5 mr-5 ml-5"style="font-size:50px;">Queen</h1>
+            <a class="btn btn-lg" href="#" role="button" style="background-color: #1DB954; color:white;">PLAY</a>
+            <a class="btn btn-lg btn-light" href="#" role="button" style="background-color:black; opacity:0.7; color:white;">FOLLOW</a>          
+            <a class="btn1" href="#" role="button" style="background-color:transparent; opacity:0.7; color:white;"><i class="fas fa-ellipsis-h fa-lg"></i></a>
+            <div class="jumbo-bottom">
+              <button type="button" class="btn-md">OVERVIEW</button>
+              <button type="button" class="btn-md">RELATED ARTISTS</button>
+              <button type="button" class="btn-md">ABOUT</button>
+            </div>
+            </div>
+        </div>
+      </div>
+        <h1>Albums</h1>
+
+        <div class="row mx-4 row-cols-2 row-cols-md-3 row-cols-lg-6 ">
+          <div class="col">
+            <div class="card">
+              <div class="position-relative">
+                <img src="https://upload.wikimedia.org/wikipedia/en/2/2b/Queen_On_Air.jpg"class="card-img-top" alt="...">
+                <div class="play-icon gradient">
+                  <i class="fa fa-play" aria-hidden="true"></i>
+                </div>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">On Air</h5>
+                <p class="card-text">Queen</p>              
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <div class="position-relative">
+                <img src="https://upload.wikimedia.org/wikipedia/en/e/ea/Queen_News_Of_The_World.png"class="card-img-top" alt="...">
+                <div class="play-icon gradient">
+                  <i class="fa fa-play" aria-hidden="true"></i>
+                </div>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">News of The World</h5>
+                <p class="card-text">Queen</p>              
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <div class="position-relative">
+              <img src="https://upload.wikimedia.org/wikipedia/en/6/6c/Bohemian_Rhapsody_soundtrack.jpg"class="card-img-top" alt="...">
+              <div class="play-icon gradient">
+                <i class="fa fa-play" aria-hidden="true"></i>
+              </div>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Bohemian Rapsody</h5>
+                <p class="card-text">Queen</p>              
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <div class="position-relative">
+              <img src="https://img.discogs.com/h-NVa4igX-riZjnzVFugzXxiRIo=/fit-in/600x591/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-7739371-1483370708-1554.jpeg.jpg"class="card-img-top" alt="...">
+              <div class="play-icon gradient">
+                <i class="fa fa-play" aria-hidden="true"></i>
+              </div>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">A Night At the Odean</h5>
+                <p class="card-text">Queen</p>              
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <div class="position-relative">
+              <img src="https://images-na.ssl-images-amazon.com/images/I/81IHYe3j4aL._SL1500_.jpg"class="card-img-top" alt="...">
+              <div class="play-icon gradient">
+                <i class="fa fa-play" aria-hidden="true"></i>
+              </div>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Live At The Raindbow</h5>
+                <p class="card-text">Queen</p>              
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <div class="position-relative">
+              <img src="https://upload.wikimedia.org/wikipedia/en/a/a1/Returnofthechampions.jpg"class="card-img-top" alt="...">
+              <div class="play-icon gradient">
+                <i class="fa fa-play" aria-hidden="true"></i>
+              </div>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Return Of The Champions</h5>
+                <p class="card-text">Queen</p>              
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        
+        <div class="row mx-4 row-cols-2 row-cols-md-3 row-cols-lg-6 ">
+          <div class="col">
+            <div class="card">
+              <div class="position-relative">
+              <img src="https://upload.wikimedia.org/wikipedia/en/0/02/Queen_Greatest_Hits.png"class="card-img-top" alt="...">
+              <div class="play-icon gradient">
+                <i class="fa fa-play" aria-hidden="true"></i>
+              </div>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Greatest Hits</h5>
+                <p class="card-text">Queen</p>              
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <div class="position-relative">
+              <img src="https://dvfnvgxhycwzf.cloudfront.net/media/SharedImage/imageFull/.fR-6jyGW/SharedImage-79365.jpg?t=4dee5d0b9ff19afd1947"class="card-img-top" alt="...">
+              <div class="play-icon gradient">
+                <i class="fa fa-play" aria-hidden="true"></i>
+              </div>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">The Works</h5>
+                <p class="card-text">Queen</p>              
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <div class="position-relative">
+              <img src="https://www.udiscovermusic.com/wp-content/uploads/2017/07/Queen-A-Night-At-The-Opera-album-cover-with-border-web-optimised-820.jpg"class="card-img-top" alt="...">
+              <div class="play-icon gradient">
+                <i class="fa fa-play" aria-hidden="true"></i>
+              </div>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">The Night At The Opera</h5>
+                <p class="card-text">Queen</p>              
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <div class="position-relative">
+              <img src="https://upload.wikimedia.org/wikipedia/en/6/63/Queen_A_Kind_Of_Magic.png"class="card-img-top" alt="...">
+              <div class="play-icon gradient">
+                <i class="fa fa-play" aria-hidden="true"></i>
+              </div>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">A Kind Of Magic</h5>
+                <p class="card-text">Queen</p>              
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <div class="position-relative">
+              <img src="https://i.pinimg.com/originals/c4/11/5e/c4115e37d3bf2195e3a365ceeaae9cf0.jpg"class="card-img-top" alt="...">
+              <div class="play-icon gradient">
+                <i class="fa fa-play" aria-hidden="true"></i>
+              </div>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Hot Space</h5>
+                <p class="card-text">Queen</p>              
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <div class="position-relative">
+              <img src="https://i.pinimg.com/originals/b3/4d/80/b34d80d0fd9052988f18e63ae338d201.jpg"class="card-img-top" alt="...">
+              <div class="play-icon gradient">
+                <i class="fa fa-play" aria-hidden="true"></i>
+              </div>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Queen II</h5>
+                <p class="card-text">Queen</p>              
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mx-4 row-cols-2 row-cols-md-3 row-cols-lg-6 ">
+          <div class="col">
+            <div class="card">
+              <div class="position-relative">
+
+                <div class="play-icon gradient">
+                  <i class="fa fa-play" aria-hidden="true"></i>
+                </div>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">On Air</h5>
+                <ul id="eminem"></ul>              
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <div class="position-relative">
+                
+                <div class="play-icon gradient">
+                  <i class="fa fa-play" aria-hidden="true"></i>
+                </div>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">News of The World</h5>
+                <p class="card-text">Queen</p>              
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <div class="position-relative">
+              
+              <div class="play-icon gradient">
+                <i class="fa fa-play" aria-hidden="true"></i>
+              </div>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Bohemian Rapsody</h5>
+                <p class="card-text">Queen</p>              
+              </div>
+            </div>
+          </div>
+          </div>
+
+         
+    </div>
+
+    <footer>
+      
+      <div class="container1">
+        <div class="row">
+          <div class="col-1">
+            <img src="https://static.stereogum.com/uploads/2017/10/queen-1507300904-640x596.jpg" style="height:50px; padding-left:20px;">
+          </div>
+          <div class="col-2 mt-3 ml-1">
+            <div style="color:white">
+            News Of The World<br>
+            <span style="color: grey;">Queen</span>
+            </div>
+          </div>
+          <div class="col-6 mt-3" style="text-align: center;">
+            <button type="button" class="btn btn-sm"><i class="fa fa-random fa-lg"></i></button>
+            <button type="button" class="btn btn-sm">  <i class="fa fa-step-backward fa-lg"> </i></button>
+            <button type="button" class="btn btn-sm"> <i class="fa fa-play-circle fa-lg"> </i></button>
+            <button type="button" class="btn btn-sm"> <i class="fa fa-step-forward fa-lg"> </i></button>
+            <button type="button" class="btn btn-sm"> <i class="fa fa-redo-alt"> </i><br></button>
+            <div class="w3-light-grey w3-round-xlarge mt-3">
+              <div class="w3-container w3-round-xlarge" style="height:5px;"></div>
+            </div>
+          </div>
+          <div class="col mt-3 mr-2"style="text-align: right;">
+            <i class="fas fa-list fa-lg"></i>
+            <i class="fas fa-volume-up fa-lg"></i>
+            <input type="range" min="1" max="100" value="50" class="slider" id="myRange">           
+          </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div class="footer-small">
+      <button type="button" class="btn btn-sm"><i class="fa fa-random fa-md"></i></button>
+            <button type="button" class="btn btn-sm">  <i class="fa fa-step-backward fa-md"> </i></button>
+            <button type="button" class="btn btn-sm"> <i class="fa fa-play-circle fa-md"> </i></button>
+            <button type="button" class="btn btn-sm"> <i class="fa fa-step-forward fa-md"> </i></button>
+            <button type="button" class="btn btn-sm"> <i class="fa fa-redo-alt"> </i><br></button>
+            
+              <button type="button" class="btn-sm" class="dropdown dropright" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ><i class="fas fa-volume-up fa-lg"></i></button>
+              <div class="dropdown-menu" style="background-color: rgba(0, 0, 0, 0.295);" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item noHover"><input type="range" min="1" max="100" value="50" class="slider" id="myRange"></a>
+              </div>
+            
+            <div class="w3-light-grey w3-round-lg mt-3">
+              <div class="w3-container w3-round-xlarge" style="height:5px; width:10px;"></div>
+            </div>
+            
+            
+    </div>
+
+
+    
+         
+    
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+    <script>
+      
+    function loadDeezer(){
+      fetch("https://deezerdevs-deezer.p.rapidapi.com/search?q=eminem", {
+      "method": "GET",
+      "headers": {
+        "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
+        "x-rapidapi-key": "60a14be2e2mshc09f8e2d55f2a80p1322bdjsnad6771061050"
+      }
+    }).then(response => response.json()).then((eminem) => console.log(eminem))
+
+    
+
+
+
+
+    
+    }
+
+    window.onload = loadDeezer
+   
+
+
+    </script>
+
+    <script src="https://kit.fontawesome.com/5e49adb972.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>

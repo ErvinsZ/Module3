@@ -6,14 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>CD Collection</title>
+    <title>Book Shop</title>
 
     <style>
         .card {
-            border: 1px solid darkgray;
             text-align: center;
-            min-height: 50px;
-            line-height: 50px;
+
         }
     </style>
 
@@ -22,7 +20,7 @@
 <body>
 
     <input type="text" id="search" placeholder="searchMe!" autocomplete="off" onkeyup="filterStuff()">
-   
+    <div id="totalDuration"></div>
     <div class="row" id="details"></div>
 
     <ul id="songNames">
@@ -44,7 +42,7 @@
         }
 
 
-        let loadedSongs = []
+        let loadedBooks = []
 
         const loadTracks = artist => {
             fetch("https://striveschool.herokuapp.com/books?offset=0&limit=50")
@@ -53,19 +51,16 @@
                     const cardContainer = document.querySelector("#cardContainer")
                     const songName = document.querySelector("#songNames")
 
-                    loadedSongs = json;
-                   
-
-                    const albums = loadedSongs.map(song => song.album)
+                    loadedBooks = json;
+                    calculateDuration(loadedBooks)
 
                     //NAVIGATION
-                    loadedSongs.forEach(currentSong => {
+                    loadedBooks.forEach(currentBook => {
                         cardContainer.innerHTML += `
                      <div class="col-sm-3 col-md-2 card" >
-                        <a href="details.html?songId=${currentSong.asin}">
-                         <img src="${currentSong.img}" style ="height:250px;">
-                         </a>
-                       <div onclick="detailMe(${currentSong.asin})"> ${currentSong.title} </div>
+                         <img src="${currentBook.img}" style ="height:250px;">   
+                       <div> ${currentBook.title} </div>
+                       <button>Add to basket</button>
                      </div>
                  `
                     })
@@ -82,50 +77,27 @@
             const cardContainer = document.querySelector("#cardContainer")
             cardContainer.innerHTML = "";
 
-            const filteredSongs = loadedSongs.filter(song => song.title.toLowerCase().includes(filterSearch))
+            const filteredBooks = loadedBooks.filter(song => song.title.toLowerCase().includes(filterSearch))
 
-            filteredSongs.forEach(currentSong => {
+            filteredBooks.forEach(currentBook => {
                 cardContainer.innerHTML += `
                 <div class="col-sm-3 col-md-2 card" >
-                        <a href="details.html?songId=${currentSong.id}">
-                         <img src="${currentSong.album.cover}">
+                        <a href="details.html?songId=${currentBook.id}">
+                         <img src="${currentBook.img}">
                          </a>
-                       <div onclick="detailMe(${currentSong.id})"> ${currentSong.title} </div>
+                       <div onclick="detailMe(${currentBook.id})"> ${currentBook.title} </div>
                      </div>
             `
             })
-            calculateDuration(filteredSongs)
+            calculateDuration(filteredBooks)
         }
 
-        const detailMe = id => {
-            const details = document.querySelector("#details")
-            const selectedSong = loadedSongs.find(x => x.id == id)
-
-            const {
-                duration
-            } = selectedSong
-
-
-            details.innerHTML = `
-            <div> ${selectedSong.title} - ${formatDuration(duration)}
-                <img src="${selectedSong.album.cover}" >
-            </div>
-        `
+        const calculateDuration = (books) => {
+            const totalDurationDiv = document.getElementById('totalDuration')
         }
 
-        
 
-        const formatDuration = duration => {
-
-            const hours = Math.floor(duration / 60 / 60)
-
-            const minutes = Math.floor(duration / 60) - (hours * 60)
-
-            const seconds = duration % 60
-
-            return formattedDuration =
-                `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`
-        }
+       
     </script>
 
     <!-- Optional JavaScript -->

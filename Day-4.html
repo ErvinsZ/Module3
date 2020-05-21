@@ -23,13 +23,18 @@
     <div id="totalDuration"></div>
     <div class="row" id="details"></div>
 
-    <ul id="songNames">
+    <ul id="Books">
 
     </ul>
 
     <div class="container">
         <div class="row" id="cardContainer">
 
+        </div>
+
+        <h2>Checkout list</h2>
+        <div class = "checkout">
+            
         </div>
 
 
@@ -49,43 +54,70 @@
                 .then(response => response.json())
                 .then(json => {
                     const cardContainer = document.querySelector("#cardContainer")
-                    const songName = document.querySelector("#songNames")
+                    const book = document.querySelector("#Books")
 
                     loadedBooks = json;
                     calculateDuration(loadedBooks)
 
-                    //NAVIGATION
+                    
                     loadedBooks.forEach(currentBook => {
                         cardContainer.innerHTML += `
-                     <div class="col-sm-3 col-md-2 card"w>
+                     <div class="col-sm-3 col-md-2 card">
                          <img src="${currentBook.img}" style ="height:250px;">   
                        <div> ${currentBook.title} </div>
-                       <button type="button" class="btn btn-warning">Add To Basket</button>
+                       <button type="button" class="btn btn-warning view-btn">Add To Basket</button>
+                       <button type="button" onclick = "skipBook()"class="btn btn-secondary">Skip</button>
                      </div>
                  `
                     })
+                    let viewButtons = document.querySelectorAll(".view-btn");
+    for(let i=0;i<viewButtons.length;i++){
+        
+     viewButtons[i].addEventListener("click",function(ev){
+      let clickedButton = ev.target;
+     let modalImage = document.createElement("img");
+     let imageSrc = document.querySelectorAll(".card > img")[i].src;
+     modalImage.setAttribute("src",`${imageSrc}`)
+     modalImage.setAttribute("style","height:300px;")
+     let modalBody = document.querySelector(".checkout")
+     console.log(modalBody)
+     modalBody.appendChild(modalImage);
+    })
+
+    }
                 })
                 .catch(err => {
                     console.log(err);
                 });
+                
         }
 
+            function skipBook(){
+                let remove = document.querySelector(".card");
+                remove.style.display ="none"
+            }
 
+            function addBasket(){
+                let card = document.querySelector(".card");
+                let checkoutBody = document.querySelector(".chekout")
+                checkoutBody.appendChild(card);
+                            }
 
         const filterStuff = () => {
             const filterSearch = document.querySelector("#search").value.toLowerCase()
             const cardContainer = document.querySelector("#cardContainer")
             cardContainer.innerHTML = "";
 
-            const filteredBooks = loadedBooks.filter(song => song.title.toLowerCase().includes(filterSearch))
+            const filteredBooks = loadedBooks.filter(book => book.title.toLowerCase().includes(filterSearch))
 
             filteredBooks.forEach(currentBook => {
                 cardContainer.innerHTML += `
                 <div class="col-sm-3 col-md-2" >
-                        <a href="details.html?songId=${currentBook.id}">
                          <img src="${currentBook.img}">
-                         </a>
-                       <div onclick="detailMe(${currentBook.id})"> ${currentBook.title} </div>
+                       <div> ${currentBook.title} </div>
+                       <button type="button" onclick = "addBasket()"class="btn btn-warning">Add To Basket</button>
+                       <button type="button" onclick = "skipBook()"class="btn btn-secondary">Skip</button>
+                       
                      </div>
             `
             })

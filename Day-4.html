@@ -75,13 +75,15 @@
         
      viewButtons[i].addEventListener("click",function(ev){
       let clickedButton = ev.target;
+      let modalCard = document.createElement("card")
      let modalImage = document.createElement("img");
      let imageSrc = document.querySelectorAll(".card > img")[i].src;
      modalImage.setAttribute("src",`${imageSrc}`)
      modalImage.setAttribute("style","height:300px;")
      let modalBody = document.querySelector(".checkout")
      console.log(modalBody)
-     modalBody.appendChild(modalImage);
+     modalBody.appendChild(modalCard)
+     modalCard.appendChild(modalImage);
     })
 
     }

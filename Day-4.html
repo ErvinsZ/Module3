@@ -57,10 +57,10 @@
                     //NAVIGATION
                     loadedBooks.forEach(currentBook => {
                         cardContainer.innerHTML += `
-                     <div class="col-sm-3 col-md-2 card" >
+                     <div class="col-sm-3 col-md-2 card"w>
                          <img src="${currentBook.img}" style ="height:250px;">   
                        <div> ${currentBook.title} </div>
-                       <button>Add to basket</button>
+                       <button type="button" class="btn btn-warning">Add To Basket</button>
                      </div>
                  `
                     })
@@ -81,7 +81,7 @@
 
             filteredBooks.forEach(currentBook => {
                 cardContainer.innerHTML += `
-                <div class="col-sm-3 col-md-2 card" >
+                <div class="col-sm-3 col-md-2" >
                         <a href="details.html?songId=${currentBook.id}">
                          <img src="${currentBook.img}">
                          </a>
